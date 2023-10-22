@@ -9,7 +9,7 @@ docker-compose build
 docker-compose up -d
 php artisan serve
 ```
-_After starting a project you may open [phpMyAdmin](http://127.0.0.1:8080) to create or view some db data._
+_After starting a project you may open [phpMyAdmin](http://127.0.0.1:8080) to create or view some db data. db:root:root_
 
 ### API endpoints
 
