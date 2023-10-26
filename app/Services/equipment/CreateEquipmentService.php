@@ -18,10 +18,11 @@ class CreateEquipmentService
                 'equipment_type_id' => 'required|numeric',
                 'serial_number' => 'required|string|unique:equipment'
             ]);
-            try{
-                $equipment_type_mask = EquipmentType::findOrFail($validation->getData()['equipment_type_id'])->mask;
+            $equipment_type_mask = EquipmentType::where("id", $validation->getData()['equipment_type_id']);
+            if($equipment_type_mask->exists()){
+                $equipment_type_mask = $equipment_type_mask->first()->mask; // получаем маску серийника
             }
-            catch(ModelNotFoundException){
+            else{
                  $errors[$key] = "Equipment type with id {$validation->getData()['equipment_type_id']} not found";
                  continue;
             }
