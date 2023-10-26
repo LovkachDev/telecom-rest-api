@@ -16,8 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('equipment', \App\Http\Controllers\equipment\GetEquimpmentListController::class)->name('get-equipment-list');
-Route::get('equipment/{id}', \App\Http\Controllers\equipment\GetEquipmentByIdController::class)->name('get-equipment-by-id');
+Route::get('equipment/{equipment}', [\App\Http\Controllers\equipment\GetEquipmentByIdController::class, "get"])->name('get-equipment-by-id');
 Route::post('equipment', [\App\Http\Controllers\equipment\CreateEquipmentController::class, "store"])->name('create-equipment');
-Route::put('equipment/{id}', [\App\Http\Controllers\equipment\UpdateEquipmentController::class, "update"])->name('update-equipment-by-id');
-Route::delete('equipment/{id}', [\App\Http\Controllers\equipment\DeleteEquipmentController::class, "delete"])->name('delete-equipment-by-id');
+Route::put('equipment/{equipment}', [\App\Http\Controllers\equipment\UpdateEquipmentController::class, "update"])->name('update-equipment-by-id');
+Route::delete('equipment/{equipment}', [\App\Http\Controllers\equipment\DeleteEquipmentController::class, "delete"])->name('delete-equipment-by-id');
 Route::get('equipment-type', \App\Http\Controllers\equipmentType\GetEquipmentTypeListController::class)->name('get-equipment-type-list');

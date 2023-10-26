@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\equipment;
 
 use App\Http\Controllers\Controller;
+use App\Models\Equipment;
 use App\Services\equipment\DeleteEquipmentService;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,7 @@ use Illuminate\Http\Request;
  */
 class DeleteEquipmentController extends Controller
 {
-    public function delete($id){
-        return DeleteEquipmentService::delete($id);
+    public function delete(Equipment $equipment){
+        return DeleteEquipmentService::delete($equipment);
     }
 }

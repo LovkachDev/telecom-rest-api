@@ -9,12 +9,8 @@ use App\Models\Equipment;
  */
 class DeleteEquipmentService
 {
-    public static function delete($id){
-        $equipment = Equipment::find($id);
-        if(!$equipment){
-            return response()->json(["error" => "equipment not found"]);
-        }
+    public static function delete($equipment){
         $equipment->delete();
-        return response()->json(["success" => "equipment with identificator {$id} successfully deleted"]);
+        return response()->json(["success" => "equipment successfully deleted"]);
     }
 }
