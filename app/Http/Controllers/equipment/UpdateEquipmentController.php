@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\equipment;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\equipment\UpdateEquipmentRequest;
 use App\Models\Equipment;
 use App\Services\equipment\UpdateEquipmentService;
 use Illuminate\Http\Request;
@@ -16,7 +17,7 @@ use Illuminate\Validation\Rule;
  */
 class UpdateEquipmentController extends Controller
 {
-    public function __invoke(Equipment $equipment, Request $request)
+    public function __invoke(Equipment $equipment, UpdateEquipmentRequest $request)
     {
         return UpdateEquipmentService::update($equipment, $request->input());
     }

@@ -17,15 +17,6 @@ use Illuminate\Validation\Rule;
 class UpdateEquipmentService
 {
     public static function update($equipment, $data){
-        $validated = Validator::make($data, [
-            'equipment_type_id' => 'required|numeric|exists:equipment_types,id',
-            'serial_number'     => ['required','string', Rule::unique('equipment')->ignore($equipment->id)]
-        ]);
-
-        if($validated->fails()){
-            return ["error" => $validated->messages()->first()];
-        }
-
         foreach ($data as $key => $item){
             $equipment->$key = $item;
         }
