@@ -11,7 +11,7 @@ class Equipment extends Model
     use HasFactory, SoftDeletes;
     protected $fillable = ["equipment_type_id", "serial_number", "desc"];
 
-    public function equipment_type(){
+    public function equipmentTypes(){
         return $this->belongsTo(EquipmentType::class);
     }
 }

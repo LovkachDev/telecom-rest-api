@@ -30,7 +30,7 @@ class UpdateEquipmentService
         foreach ($data as $key => $item){
             $equipment->$key = $item;
         }
-        $maskValidate = MaskValidator::validate($equipment->serial_number, $equipment->equipment_type->mask); //валидация на совпадение серийного номера с маской
+        $maskValidate = MaskValidator::validate($equipment->serial_number, $equipment->equipmentTypes->mask); //валидация на совпадение серийного номера с маской
         if(!$maskValidate){
             return ["error" => "Serial number does not match with mask."];
         }
