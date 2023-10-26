@@ -3,6 +3,7 @@
 namespace App\Services\equipment;
 
 use App\Helpers\Validator\MaskValidator;
+use App\Http\Resources\equipment\EquipmentResource;
 use App\Models\Equipment;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
@@ -35,6 +36,6 @@ class UpdateEquipmentService
         }
 
         $equipment->save();
-        return $equipment;
+        return new EquipmentResource($equipment);
     }
 }
