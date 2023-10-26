@@ -14,9 +14,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class GetListByQuery{
     public static function listByQuery($table, $column, $query){
-        $query != null ?
-            $data = $table::where($column, 'LIKE', "%{$query}%")->get() :
-            $data = $table::all();
+        if($query != null){
+            $data = $table::where($column, 'LIKE', "%{$query}%")->paginate(10);
+        }
+        else{
+            $data = $table::paginate(10);
+        }
         return $data;
     }
 }
