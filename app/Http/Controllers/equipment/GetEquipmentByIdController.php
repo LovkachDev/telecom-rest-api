@@ -14,7 +14,7 @@ use Illuminate\Http\Request;
  */
 class GetEquipmentByIdController extends Controller
 {
-    public function get(Equipment $equipment){
+    public function __invoke(Equipment $equipment){
         return new EquipmentResource($equipment); // returns data of equipment or return error message if ed not found
     }
 }

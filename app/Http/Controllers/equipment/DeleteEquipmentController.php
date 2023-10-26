@@ -14,7 +14,7 @@ use Illuminate\Http\Request;
  */
 class DeleteEquipmentController extends Controller
 {
-    public function delete(Equipment $equipment){
+    public function __invoke(Equipment $equipment){
         return DeleteEquipmentService::delete($equipment);
     }
 }

@@ -16,7 +16,7 @@ use Illuminate\Validation\Rule;
  */
 class UpdateEquipmentController extends Controller
 {
-    public function update(Equipment $equipment, Request $request)
+    public function __invoke(Equipment $equipment, Request $request)
     {
         return UpdateEquipmentService::update($equipment, $request->input());
     }

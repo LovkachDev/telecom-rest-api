@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
  */
 class CreateEquipmentController extends Controller
 {
-    public function store(Request $request){
+    public function __invoke(Request $request){
         $result = CreateEquipmentService::make($request->input());
         return response()->json($result);
     }
