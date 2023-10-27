@@ -3,7 +3,9 @@
 namespace App\Services\Database;
 
 
+use App\Models\Equipment;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Schema;
 
 /**
  * @param $table Model
@@ -13,13 +15,13 @@ use Illuminate\Database\Eloquent\Model;
  */
 
 class GetListByQuery{
-    public static function listByQuery($table, $column, $query){
-        if($query != null){
-            $data = $table::where($column, 'LIKE', "%{$query}%")->paginate(10);
+    public static function listByQuery($table, $items){
+        $query = $table::query();
+        foreach ($items as $field => $value) {
+            if (Schema::hasColumn((new $table)->getTable(), $field)) {
+                $query->orWhere($field, 'LIKE', "%{$value}%");
+            }
         }
-        else{
-            $data = $table::paginate(10);
-        }
-        return $data;
+        return $query->paginate(10);
     }
 }

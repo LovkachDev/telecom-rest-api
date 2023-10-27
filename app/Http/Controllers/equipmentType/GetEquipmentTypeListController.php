@@ -16,7 +16,7 @@ use Illuminate\Http\Request;
 class GetEquipmentTypeListController extends Controller
 {
     public function __invoke(Request $request){
-        $list = GetListByQuery::listByQuery(EquipmentType::class, 'name', $request->get("q")); // получаем список оборудования, вклуючая запрос с query параметрами
+        $list = GetListByQuery::listByQuery(EquipmentType::class,  $request->all()); // получаем список оборудования, вклуючая запрос с query параметрами
         return new EquipmentTypeCollection($list);
     }
 }
