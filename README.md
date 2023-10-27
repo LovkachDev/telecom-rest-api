@@ -24,7 +24,9 @@ _After starting a project you may open [phpMyAdmin](http://127.0.0.1:8080) to cr
 _Get list of equipment with option q, which can find data by word or spell by letters_
 >/api/equipment
 
-For example: `http://127.0.0.1:8000/api/equipment/?q=123`
+For example: `http://127.0.0.1:8000/api/equipment/?serial_number=AAA`
+
+Or: `http://127.0.0.1:8000/api/equipment/?desc=desc`
 
 <hr>
 
@@ -41,6 +43,19 @@ _Create equipment. You can send multiple data and you will get array with succes
 >/api/equipment
 
 For example: `http://127.0.0.1:8000/api/equipment/`
+Body: 
+```json
+[
+    {
+        "equipment_type_id" : 1,
+        "serial_number": "00BEADD8AA"
+    },
+    {
+        "equipment_type_id" : 1,
+        "serial_number": "testValidation"
+    }
+]
+```
 
 <hr>
 
@@ -49,6 +64,15 @@ _Update equipment. you can set the id and specify new data for updating. Mask va
 >/api/equipment/{id}
 
 For example: `http://127.0.0.1:8000/api/equipment/1`
+
+Body:
+```json
+{
+    "equipment_type_id" : 1,
+    "serial_number" : "00BEADA8AA",
+    "desc" : "dsdfssss"
+}
+```
 
 <hr>
 
@@ -64,4 +88,6 @@ For example: `http://127.0.0.1:8000/api/equipment/1`
 _Get list of equipment types with option q, which can find data by word or spell by letters_
 >/api/equipment
 
-For example: `http://127.0.0.1:8000/api/equipment-type/?q=123`
+For example: `http://127.0.0.1:8000/api/equipment-type?name=TP-Link TL-WR74`
+
+Or: `http://127.0.0.1:8000/api/equipment-type?mask=XXAAAAAXAA`
