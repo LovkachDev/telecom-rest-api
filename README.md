@@ -1,4 +1,5 @@
 ## Telecom RESTfull API
+Its test task for xxx company for PHP developer. You can check task ./task.pdf 
 
 #### What i'm using: 
 > Laravel 9, MySQL, Docker, Nginx, Postman, phpMyAdmin
